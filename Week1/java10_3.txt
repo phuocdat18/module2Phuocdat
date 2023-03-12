@@ -1,0 +1,57 @@
+10/03/23
+Khai báo mảng: 
+	int [] numbers = new int[5];		// khởi tạo 1 mảng gồm 5 phần tử với giá trị mặt định là 0
+	int[] numbers = {1, 7, 5, 1}; 		// khai báo nhanh 1 mảng
+	Độ dài mảng, numbers[i]
+
+
+Bài tập 
+BT1: Tính tổng các giá trị trong mảng
+BT2: Đếm xem mảng có bao nhiêu số chẵn
+BT3: Tìm giá trị nhỏ nhất của mảng
+BT4: Thêm phần tử vào mảng
+BT5: Xóa phần tử khỏi mảng
+BT6: Gộp 2 mảng a, b lại với nhau
+Bài tập vòng lặp ai chưa làm thì làm bù
+
+Các kiểu dữ liệu mặc định trong Java: boolean; char; byte; short; int; long; float; double.
+
+Đọc bài trước, note lại và demo:
+https://viettuts.vn/java/lop-wrapper-trong-java
+Lớp Wrapper trong java:
+- Cung cấp cơ chế để chuyển đổi kiểu dữ liệu nguyên thủy thành kiểu đối tượng và từ đối tượng thành kiểu dữ liệu nguyên thủy.
+- Trong Java có 8 lớp Wrapper được thiết kế trong gói java.lang. Với Kiểu nguyên thủy - Kiểu Wrapper:
+boolean-Boolean; char-Charater; byte-Byte; short-Short; int-Integer; long-Long; float-Float; double-Double.
+- Ví dụ:
+	+ Chuyển kiểu dữ liệu nguyên thủy thành kiểu Wrapper:
+ public class WrapperExample1 {
+    public static void main(String args[]) {
+        // Đổi int thành Integer
+        int a = 20;
+        Integer i = Integer.valueOf(a);// đổi int thành Integer
+        Integer j = a;// autoboxing, tự động đổi int thành Integer trong nội bộ trình biên dịch
+ 
+        System.out.println(a + " " + i + " " + j);
+    }
+}
+
+	+ Chuyển ngược lại( Wrapper - kiểu nguyên thủy):
+public class WrapperExample2 {
+    public static void main(String args[]) {
+        // đổi Integer thành int
+        Integer a = new Integer(3);
+        int i = a.intValue();// đổi Integer thành int
+        int j = a;// unboxing, tự động đổi Integer thành int trong nội bộ trình biên dịch
+ 
+        System.out.println(a + " " + i + " " + j);
+    }
+}
+
+
+Kiểu tham chiếu và tham trị trong Java
+https://gochocit.com/ngon-ngu-lap-trinh/truyen-tham-tri-va-tham-chieu-cho-phuong-thuc-trong-java
+- Tham số của phương thức là những biến được khai báo trong khai báo phương thức. Tham số đóng vai trò là giá trị đầu vào cho phương thức.
+- Truyền tham trị trong Java: Gọi một phương thức và truyền một giá trị cho phương thức. Việc thay đổi giá trị chỉ có hiệu lực trong phương thức được gọi, không có hiệu lực bên ngoài phương thức.
+Truyền tham trị dành cho các tham số có kiểu dữ liệu nguyên thủy là byte, short, int, long, float, double, boolean, char.
+- Truyền tham chiếu trong Java: Gọi một phương thức và truyền một tham chiếu cho phương thức. Việc thay đổi giá trị của biến tham chiếu bên trong phương thức làm thay đổi giá trị của nó.
+Tất các phương thức có tham số là biến có kiểu là các lớp (class) đều là kiểu tham chiếu.
