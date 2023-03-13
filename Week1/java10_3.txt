@@ -1,4 +1,7 @@
-{10/03/23
+
+
+-------------------------------------------------------10/03
+
 Khai báo mảng: 
 	int [] numbers = new int[5];		// khởi tạo 1 mảng gồm 5 phần tử với giá trị mặt định là 0
 	int[] numbers = {1, 7, 5, 1}; 		// khai báo nhanh 1 mảng
@@ -55,10 +58,11 @@ https://gochocit.com/ngon-ngu-lap-trinh/truyen-tham-tri-va-tham-chieu-cho-phuong
 Truyền tham trị dành cho các tham số có kiểu dữ liệu nguyên thủy là byte, short, int, long, float, double, boolean, char.
 - Truyền tham chiếu trong Java: Gọi một phương thức và truyền một tham chiếu cho phương thức. Việc thay đổi giá trị của biến tham chiếu bên trong phương thức làm thay đổi giá trị của nó.
 Tất các phương thức có tham số là biến có kiểu là các lớp (class) đều là kiểu tham chiếu.
-}
 
 
-13/03
+
+-------------------------------------------------------13/03
+
 // Scanner dùng để nhập thông tin
 public static Scanner scanner = new Scanner(System.in);
 
@@ -74,7 +78,7 @@ System.out.printf("%s xin chao", "C1222I1");
 //Sao chép 1 mảng gốc thành 1 mảng mới theo 1 độ dài cho trước
 Arrays.copyOf(a, a.length + 1);
 
-14/03
+-------------------------------------------------------14/03
 
 Đọc thêm và notes:
 Print format trong java
@@ -144,3 +148,6 @@ Vd: public Person(String s, int n) {
     age = n;
     }
     ----->   personObj = new Person("John", 20);
+
+-------------------------------------------------------15/3
+
