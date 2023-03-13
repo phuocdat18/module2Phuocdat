@@ -149,5 +149,32 @@ Vd: public Person(String s, int n) {
     }
     ----->   personObj = new Person("John", 20);
 
+- Cách truy xuất các thuộc tính, phương thức:
++ Có thể truy xuất các thành phần của đối tượng thông qua biến trỏ đến đối tượng.
+Sử dụng dấu chấm (.) để truy xuất thuộc tính của đối tượng.
+Vd: Person personObj;
+    personObj = new Person("John",20);
+    System.out.println("Myname is: " + personObj.name);
+    System.out.println("My age is: "+ personObj.age);
++ Sử dụng dấu chấm (.) để gọi phương thức của đối tượng.
+Vd: Person personObj;
+    personObj = newPerson();
+    String greeting = personObj.sayHello();
+- getter, setter:
++ getter cú pháp: public returnTypegetPropertyName()
+Đối với các thuộc tính kiểu boolean thì tên getter bắt đầu bằng chữ is: public boolean isPropertyName()
++ setter cú pháp: public void setPropertyName(dataType propertyValue)
++Vd: class Person{
+    private Stringname;
+    public void setName(String name){
+    this.name = name;
+    }
+    public String getName(){
+    return this.name;
+    }
+}
+
+
+
 -------------------------------------------------------15/3
 
