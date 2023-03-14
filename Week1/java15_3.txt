@@ -40,12 +40,34 @@ System.out.printf("%s | %10s | %-20s \n", "ID", "Quang Dang", "1000000000");
 
 
 Đọc tìm hiểu và demo
++ access modifier trong Java
 + biến static trong java
 https://www.youtube.com/watch?v=YTYnNFCcDXA
 + Nested class là gì?
 + biến instance và biến local, biến static trong java
 https://viettuts.vn/java/bien-trong-java
 
+- Access modifier trong Java
++ Private chỉ được truy cập trong phạm vị lớp
+Vd: private int sum1(int a, int b) {
+        return a+b;
+    }
+    public static void main(String[] args) {
+        test d = new test();
+        int s = d.sum1(10, 15);
+        System.out.println(s);
+    }
++ Protected được truy cập bên trong package và bên ngoài package nhưng phải kế thừa. Protected có thể được áp dụng cho biến, phương thức, constructor. Nó không thể áp dụng cho lớp.
+Vd: protected int sum(int a, int b) {
+       return a+b;
+   }
+   public static void main(String[] args) {
+       test d = new test();
+       int s = d.sum(10, 20);
+       System.out.println(s);
+   }
++ Public được truy cập mọi nơi.
++ Default: Nếu không được khai báo modifier nào thì sẽ thành trường hợp mặc định. Default chỉ được phép truy cập trong cùng package.
 
 - Biến static trong java là biến được khai báo với từ khóa "static" và được lưu trữ tại mức lớp chứ không phải tại mức đối tượng. Mỗi lớp chỉ có một bản sao của biến static đó, không phụ thuộc vào số lượng đối tượng được tạo ra từ lớp đó.
 + Đặc điểm của biến static trong Java:
