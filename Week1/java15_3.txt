@@ -1,0 +1,165 @@
+-------------------------------------------------------14/03
+
+
+Các bộ định dạng có sẵn trong Printf:
+
+. %c: Ký tự
+vd:
+char letter = 'A';
+System.out.printf("The letter is %c", letter);//The letter is A
+
+. %d: Số thập phân (số nguyên) (cơ số 10)
+vd:
+int age = 27;
+System.out.printf("I am %d years old", age);//I am 27 years old
+
+. %e: Dấu phẩy động theo cấp số nhân
+vd:
+double pi = 3.14159265359;
+System.out.printf("The value of pi is approximately %e", pi);//The value of pi is approximately 3.141593e+00
+
+. %f: Dấu phẩy động
+. %i: Số nguyên (cơ sở 10)
+. %o: Số bát phân (cơ sở 8)
+. %s: Chuỗi
+. %u: Số thập phân (số nguyên) không dấu
+. %x: Số trong hệ thập lục phân (cơ sở 16)
+. %t: Định dạng ngày / giờ
+. %%: Dấu phần trăm
+. \%: Dấu phần trăm
+ int age = 30;
+double weight = 65.5667;
+System.out.printf("Age: %d, Weight: %.3f \n", age, weight);
+
+System.out.printf("%s | %10s | %20s \n", "ID", "Name", "Price");
+System.out.printf("%s | %10s | %20s \n", "ID", "Quang Dang", "1000000000");
+System.out.printf("%s | %10s | %-20s \n", "ID", "Quang Dang", "1000000000");
+
+
+-------------------------------------------------------15/03
+
+
+Đọc tìm hiểu và demo
++ biến static trong java
+https://www.youtube.com/watch?v=YTYnNFCcDXA
++ Nested class là gì?
++ biến instance và biến local, biến static trong java
+https://viettuts.vn/java/bien-trong-java
+
+
+- Biến static trong java là biến được khai báo với từ khóa "static" và được lưu trữ tại mức lớp chứ không phải tại mức đối tượng. Mỗi lớp chỉ có một bản sao của biến static đó, không phụ thuộc vào số lượng đối tượng được tạo ra từ lớp đó.
++ Đặc điểm của biến static trong Java:
+. Biến static có thể được truy cập thông qua tên lớp mà không cần tạo đối tượng.
+. -- được chia sẻ giữa tất cả các đối tượng của lớp.
+. -- được khởi tạo trước khi đối tượng của lớp được tạo ra và tồn tại cho đến khi chương trình kết thúc.
+. -- có thể được sử dụng để đếm số lượng đối tượng đã được tạo ra từ lớp, hoặc để lưu trữ thông tin chung cho tất cả các đối tượng của lớp.
+Vd: public class MyClass {
+    static int myVar = 10;
+    // ...
+}
+
+- Nested class là một lớp được định nghĩa bên trong một lớp khác. Nó được định nghĩa trong phạm vi của lớp bao bọc bên ngoài và có thể truy cập vào các biến thành viên và phương thức của lớp bao bọc.
+Có hai loại nested class trong Java:
++ Static nested class là một lớp được định nghĩa là static trong một lớp khác. Nó có thể được truy cập mà không cần tạo đối tượng của lớp bao bọc.
+Vd: public class OuterClass {
+    static class StaticNestedClass {
+        //...
+    }
+}
++ Inner class là một lớp được định nghĩa bên trong một lớp khác và không phải là static. Nó có thể truy cập vào các biến và phương thức của lớp bao bọc, bao gồm cả các biến và phương thức private. Có ba loại Inner class:
+. Member inner class: Lớp này được định nghĩa trong một lớp khác và không phải là static.
+Vd: public class OuterClass {
+    class InnerClass {
+        //...
+    }
+}
+. Local inner class: Lớp này được định nghĩa trong một phương thức và không phải là static.
+Vd: public class OuterClass {
+    void someMethod() {
+        class LocalInnerClass {
+            //...
+        }
+    }
+}
+. Anonymous inner class: Lớp này được định nghĩa mà không có tên, thường được sử dụng để triển khai các giao diện hoặc lớp trừu tượng.
+Vd: public class OuterClass {
+    void someMethod() {
+        Runnable r = new Runnable() {
+            public void run() {
+                //...
+            }
+        };
+    }
+}
+
+- Biến local, biến instance và biến static trong java:
++ Biến local:   Biến local được khai báo trong các phương thức, hàm contructor hoặc trong các block.
+		Biến local được tạo bên trong các phương thức, contructor, block và sẽ bị phá hủy khi kết thúc các phương thức, contructor và block.
+		Các biến local được lưu trên vùng nhớ stack của bộ nhớ.
+Vd: package vn.viettuts.bienvadulieu;
+ 
+public class Bien {
+     
+    public void sayHello() {
+        int n = 10;                     // Đây là biến local
+        System.out.println("Gia tri cua n la: " + n);
+    }
+     
+    public static void main(String[] args) {
+        Bien bienLocal = new Bien();
+        bienLocal.sayHello();
+    }
+}
++ Biến instance:Biến instance được khai báo trong một lớp(class), bên ngoài các phương thức, constructor và các block.
+		Biến instance được lưu trong bộ nhớ heap.
+		Biến instance được tạo khi một đối tượng được tạo bằng việc sử dụng từ khóa “new” và sẽ bị phá hủy khi đối tượng bị phá hủy.
+		Biến instance có thể được sử dụng bởi các phương thức, constructor, block, ... Nhưng nó phải được sử dụng thông qua một đối tượng cụ thể.
+		Biến instance có giá trị mặc định phụ thuộc vào kiểu dữ liệu của nó. Ví dụ nếu là kiểu int, short, byte thì giá trị mặc định là 0, kiểu double thì là 0.0d, ... Vì vậy, bạn sẽ không cần khởi tạo giá trị cho biến instance trước khi sử dụng.
+Vd: public class Sinhvien {
+    // biến instance "ten" kiểu String, có giá trị mặc định là null
+    public String ten;
+ 
+    // biến instance "tuoi" kiểu Integer, có giá trị mặc định là 0
+    private int tuoi;
+ 
+    // sử dụng biến ten trong một constructor
+    public Sinhvien(String ten) {
+        this.ten = ten;
+    }
+ 
+    // sử dụng biến tuoi trong phương thức setTuoi
+    public void setTuoi(int tuoi) {
+        this.tuoi = tuoi;
+    }
+ 
+    public void showStudent() {
+        System.out.println("Ten  : " + ten);
+        System.out.println("Tuoi : " + tuoi);
+    }
+ 
+    public static void main(String args[]) {
+        Sinhvien sv = new Sinhvien("Nguyen Van A");
+        sv.setTuoi(21);
+        sv.showStudent();
+    }
+}
++ Biến static:  Biến static được khai báo trong một class với từ khóa "static", phía bên ngoài các phương thức, constructor và block.
+		Sẽ chỉ có duy nhất một bản sao của các biến static được tạo ra, dù bạn tạo bao nhiêu đối tượng từ lớp tương ứng.
+		Biến static được lưu trữ trong bộ nhớ static riêng.
+		Biến static được tạo khi chương trình bắt đầu chạy và chỉ bị phá hủy khi chương trình dừng.
+		Biến static được truy cập thông qua tên của class chứa nó, với cú pháp: TenClass.tenBien.
+Vd: public class Sinhvien {
+    // biến static 'ten'
+    public static String ten = "Nguyen Van A";
+     
+    // biến static 'tuoi'
+    public static int tuoi = 21;
+ 
+    public static void main(String args[]) {
+        // Sử dụng biến static bằng cách gọi trực tiếp
+        System.out.println("Ten : " + ten);
+ 
+        // Sử dụng biến static bằng cách gọi thông qua tên class
+        System.out.println("Ten : " + Sinhvien.tuoi);
+    }
+}
