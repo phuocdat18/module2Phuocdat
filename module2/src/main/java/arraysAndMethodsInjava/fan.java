@@ -32,7 +32,7 @@ public class fan {
     public void setOn(boolean on) {
         this.on = on;
     }
-
+    
     public double getRadius() {
         return radius;
     }
