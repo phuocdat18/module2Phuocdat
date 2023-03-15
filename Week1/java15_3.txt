@@ -66,6 +66,14 @@ Vd: protected int sum(int a, int b) {
        int s = d.sum(10, 20);
        System.out.println(s);
    }
+
+   public class test2 {
+   public static void main(String[] args) {
+   test d = new test();
+   int s = d.sum(15, 17);
+   System.out.println(s);
+   }
+   }
 + Public được truy cập mọi nơi.
 + Default: Nếu không được khai báo modifier nào thì sẽ thành trường hợp mặc định. Default chỉ được phép truy cập trong cùng package.
 
