@@ -1,0 +1,137 @@
+Abstract Class và Interface là 2 tính năng quan trọng trong Java
+ để xây dựng các chương trình hướng đối tượng.
+ Dưới đây là một số ví dụ về bài tập sử dụng
+ Abstract Class và Interface trong Java:
+
+Abstract Class:
+
+1. Tạo một lớp abstract 'Shape' chứa một phương thức abstract 'calculateArea()'
+và một phương thức 'display()'. Tạo các lớp con 'Rectangle' và 'Circle' kế thừa
+từ lớp 'Shape' và triển khai phương thức 'calculateArea()' để tính diện tích
+của hình tròn và hình chữ nhật.
+
+abstract class Shape {
+   public abstract double calculateArea();
+
+   public void display() {
+      System.out.println("This is a shape");
+   }
+}
+
+class Rectangle extends Shape {
+   double length, width;
+
+   public Rectangle(double length, double width) {
+      this.length = length;
+      this.width = width;
+   }
+
+   public double calculateArea() {
+      return length * width;
+   }
+}
+
+class Circle extends Shape {
+   double radius;
+
+   public Circle(double radius) {
+      this.radius = radius;
+   }
+
+   public double calculateArea() {
+      return Math.PI * radius * radius;
+   }
+}
+
+2. Tạo một lớp abstract 'Animal' chứa một phương thức abstract 'makeSound()'
+và một phương thức 'move()'. Tạo các lớp con 'Cat' và 'Dog' kế thừa
+từ lớp 'Animal' và triển khai phương thức 'makeSound()' để in ra tiếng kêu
+ của mèo và chó.
+
+ abstract class Animal {
+    public abstract void makeSound();
+
+    public void move() {
+       System.out.println("This animal is moving");
+    }
+ }
+
+ class Cat extends Animal {
+    public void makeSound() {
+       System.out.println("Meow");
+    }
+ }
+
+ class Dog extends Animal {
+    public void makeSound() {
+       System.out.println("Woof");
+    }
+ }
+
+
+Interface:
+
+1. Tạo một interface 'Drawable' chứa một phương thức 'draw()'.
+Tạo các lớp 'Circle' và 'Rectangle' triển khai interface 'Drawable' và
+triển khai phương thức 'draw()' để vẽ hình tròn và hình chữ nhật.
+
+interface Drawable {
+   void draw();
+}
+
+class Circle implements Drawable {
+   public void draw() {
+      System.out.println("Drawing a circle");
+   }
+}
+
+class Rectangle implements Drawable {
+   public void draw() {
+      System.out.println("Drawing a rectangle");
+   }
+}
+
+2. Tạo một interface 'Playable' chứa một phương thức 'play()'.
+Tạo các lớp 'Piano' và 'Guitar' triển khai interface 'Playable'
+và triển khai phương thức 'play()' để chơi đàn Piano và Guitar.
+
+interface Playable {
+   void play();
+}
+
+class Piano implements Playable {
+   public void play() {
+      System.out.println("Playing piano music");
+   }
+}
+
+class Guitar implements Playable {
+   public void play() {
+      System.out.println("Playing guitar music");
+   }
+}
+
+Để hoàn thành ví dụ này, bạn có thể tạo một lớp 'Musician' chứa một
+phương thức 'playInstrument()' nhận vào một đối tượng
+'Playable' và gọi phương thức 'play()' trên đối tượng đó.
+Sau đó, tạo một đối tượng 'Piano' và 'Guitar', và truyền chúng
+vào phương thức 'playInstrument()' để chơi đàn.
+
+class Musician {
+   public void playInstrument(Playable instrument) {
+      instrument.play();
+   }
+}
+
+public class Main {
+   public static void main(String[] args) {
+      Playable piano = new Piano();
+      Playable guitar = new Guitar();
+
+      Musician musician = new Musician();
+      musician.playInstrument(piano); // Playing piano music
+      musician.playInstrument(guitar); // Playing guitar music
+   }
+}
+Kết quả khi chạy chương trình sẽ là:   Playing piano music
+                                       Playing guitar music
