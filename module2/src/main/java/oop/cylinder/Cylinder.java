@@ -23,11 +23,11 @@ public class Cylinder extends Circle{
 
         // Cách 3:     setColor(color);  vì sao gọi được:
         //
-//        setColor(color);    // có thể dùng: this.setColor(color);
+//        setColor(color);    // có thể dùng: this.setColor(color); Vì lớp có đợc nên được gọi từ lớp con
 //        setRadius(radius);
 
         // cách 4: super.setColor(color); vì sao gọi được:
-        // dùng để ghi đè các phương thức của lớp cha để tùy chỉnh hành vi
+        // dùng để gọi lên phuonwg thức của lớp cha
 //        super.setColor(color);
 //        super.setRadius(radius);
 
