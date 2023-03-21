@@ -24,9 +24,9 @@ public class Shape{
     }
 
     @Override    public String toString() {
-        return "A Shape with color of "
+        return "1 hình với màu là: "
                 + getColor()
-                + " and "
+                + " và "
                 + (isFilled() ? "filled" : "not filled");
     }
 
