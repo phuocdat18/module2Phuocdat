@@ -1,0 +1,121 @@
+-------------------------------------------------------20/03
++ Generics trong Java
++ Phương thức equals và hashcode trong java
+
+
+- Generics trong Java:
+Một lớp có thể tham chiếu bất kỳ kiểu đối tượng nào được gọi là lớp generic.
+Vd: class MyGeneric<T> {
+    T obj;
+ 
+    void add(T obj) {
+        this.obj = obj;
+    }
+ 
+    T get() {
+        return obj;
+    }
+}
+- Phương thức Generics trong Java:
+Giống như lớp generic, chúng ta có thể tạo phương thức generic có thể chấp nhận bất kỳ kiểu đối số nào.
+Vd: public class TestGenerics4 {
+ 
+    public static <E> void printArray(E[] elements) {
+        for (E element : elements) {
+            System.out.print(element + " ");
+        }
+        System.out.println();
+    }
+ 
+    public static void main(String args[]) {
+        Integer[] intArray = { 10, 20, 30, 40, 50 };
+        Character[] charArray = { 'J', 'A', 'V', 'A' };
+ 
+        System.out.print("In mảng số nguyên: ");
+        printArray(intArray);
+ 
+        System.out.print("In mảng ký tự: ");
+        printArray(charArray);
+    }
+}
+Kết quả: In mảng số nguyên: 10 20 30 40 50 
+	 In mảng ký tự: J A V A
+
+- Ký tự đại diện trong Java Generics:
+Ký tự ? (dấu chấm hỏi) tượng trưng cho phần tử ký tự đại diện. Nó có nghĩa là bất kỳ loại nào. Nếu chúng ta viết <? mở rộng Number>, nó có nghĩa là bất kỳ lớp con của Number ví dụ như Integer, Float, Double vv. Bây giờ chúng ta có thể gọi phương thức của lớp Number qua bất kỳ đối tượng lớp con nào.
+
+- Sử dụng Generics trong các đối tượng Collection:
+Trước Generics, chúng ta có thể lưu trữ bất kỳ loại đối tượng nào trong collection như Non-generic. Với generics, được các lập trình java áp dụng để lưu trữ các kiểu cụ thể của các đối tượng.
++ Cú pháp sử dụng Collection:   ClassOrInterface<Type>
+				ArrayList<String>  
+
+- VD: import java.util.ArrayList;
+import java.util.Iterator;
+ 
+class TestGenerics1 {
+    public static void main(String args[]) {
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("Java");
+        list.add("PHP");
+        list.add("C++");
+        // list.add(32);//compile time error
+ 
+        // show list
+        Iterator<String> itr = list.iterator();
+        while (itr.hasNext()) {
+            System.out.println(itr.next());
+        }
+    }
+}
+
+- Lợi thế của Generics trong Java:
++ Kiểu đối tượng an toàn: Chúng ta chỉ có thể lưu một kiểu đối tượng duy nhất trong generics. Nó không cho phép lưu trữ 2 đối tượng có kiểu khác nhau.
++ Không cần phải ép kiểu
++ Kiểm tra lúc biên dịch: nó kiểu tra lỗi khi biên dịch nên sẽ không bị lỗi lúc runtime. 
+
+
+
+- Phương thức equals và hashcode trong java
+- Phương thức equals() trong Java:
+Khi so sánh hai đối tượng với nhau, Java gọi phương thức equals() của chúng trả về true nếu hai đối tượng bằng nhau hoặc false nếu hai đối tượng là khác nhau. Lưu ý rằng phép so sánh sử dụng phương thức equals() so với sử dụng toán tử == là khác nhau.
+Vd: public class EqualExample1 {
+    public static void main(String[] args) {
+        String s1 = new String("This is a string");
+        String s2 = new String("This is a string");
+ 
+        System.out.println("s1 == s2: " + (s1 == s2));
+        System.out.println("s1.equals(s2): " + (s1.equals(s2)));
+    }
+}
+Kết quả: s1 == s2: false
+	 s1.equals(s2): true - So sánh tham chiếu (toán tử ==) trả về false vì s1 và s2 là hai đối tượng khác nhau được lưu trữ ở các vị trí khác nhau trong bộ nhớ. Trong khi so sánh ngữ nghĩa trả về true bởi vì s1 và s2 có cùng giá trị (“THis is a string”) có thể được coi là bằng nhau về mặt ngữ nghĩa.
+
+- Phương thức hashCode() trong Java:
++ Phương thức hashCode() là một phương thức trong Java được định nghĩa trong lớp Object, và được sử dụng để trả về một giá trị mã băm (hash code) của đối tượng hiện tại. Mã băm là một giá trị số nguyên được tính toán dựa trên các thuộc tính của đối tượng, và được sử dụng để tìm kiếm và so sánh đối tượng trong các cấu trúc dữ liệu như bảng băm (hash table) và bộ đệm (cache).
++ Một số điều cần lưu ý về phương thức hashCode() trong Java:
+__Mã băm của một đối tượng được tính toán dựa trên các thuộc tính của đối tượng đó, nhưng không bao gồm các thuộc tính được đánh dấu là transient hoặc static.
+__Nếu hai đối tượng bằng nhau theo phương thức equals(), thì mã băm của chúng cũng phải bằng nhau.
+__Mã băm của một đối tượng có thể thay đổi trong quá trình thực thi của chương trình, trừ khi đối tượng đó không bị thay đổi và không được lưu trữ trong một cấu trúc dữ liệu sử dụng mã băm để tìm kiếm.
+__Nếu một lớp định nghĩa phương thức equals(), thì cần phải định nghĩa lại phương thức hashCode() để đảm bảo tính nhất quán giữa hai phương thức này.
+__Trong Java, các lớp thường sử dụng thuật toán hash code làm base để tính toán mã băm. Có nhiều thuật toán hash code khác nhau có thể được sử dụng, tuy nhiên, lớp Object định nghĩa mặc định một thuật toán đơn giản để tính toán mã băm.
+
+Vd: public class Employee {
+    private String name;
+    private String address;
+    private String phone;
+    private int empID;
+
+    // constructor, getters, setters, etc.
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + name.hashCode();
+        result = 31 * result + address.hashCode();
+        result = 31 * result + phone.hashCode();
+        result = 31 * result + empID;
+        return result;
+    }
+
+    // equals method, etc.
+}
