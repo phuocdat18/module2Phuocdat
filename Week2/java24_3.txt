@@ -1,0 +1,112 @@
+-------------------------------------------------------24/03
+
+public interface DoublyLinkedList<T> extends Iterable<T> {
+    // O(n)
+    void clear();
+
+    // constant
+    int size();
+
+    // constant
+    boolean isEmpty();
+
+    // O(1)
+    void add(T element);
+
+    // O(1)
+    void addFirst(T element);
+
+    // O(1)
+    void addLast(T element);
+
+    // O(1)
+    T peekFirst();
+
+    // O(1)
+    T peekLast();
+
+    // O(1)
+    T removeFirst();
+
+    // O(1)
+    T removeLast();
+
+    // O(1)
+    T remove(Node<T> node);
+
+    // O(n)
+    boolean remove(Object object);
+
+    // O(n)
+    T removeAt(int index);
+
+    // O(n)
+    int indexOf(Object object);
+
+    // O(n)
+    boolean contains(Object object);
+}
+
+public class test {
+    //head: đánh dấu điểm bắt đầu của 1 linked list
+    //1 mảng mặc định bao gồm n phần tử, tự tạo sẵn ở trên head
+    private Node head;
+    private int numOfNodes;
+
+    public test(Node head) {
+        this.head = head;
+    }
+    public void addDFirrst(Object data) {
+        Node temp = head;
+        head = new Node(data);
+        head.next = temp;
+        numOfNodes++;
+    }
+
+    //Từ LinkedList có 5 phần tử --> tạo ra LinkedList chỉ 3 phần tử
+    //[0] - [1] - [2] - [3] - [4]
+    //- Cho index = 3
+    //Ta tìm đến vị trí số 2 và đánh dấu nó là temp. Lưu số 3 vào holder
+    //Thay đổi tham chiếu từ temp sang node mới
+    //và thay đổi tham chiếu ở node mới sang holder
+    //Sau đó tăng size
+    public void addByIndex(int index, Object data) {
+        Node temp = head;
+        for( int i = 0; i < index-1 && temp.next != null; i++) {
+            temp = temp.next;
+        }
+        Node holder = temp.next;
+        temp.next = new Node(data);
+        temp.next.next = holder;
+        numOfNodes++;
+    }
+
+    //- Xóa 1 phần tử trong LinkedList
+    //Tìm đến node thứ 1 -> temp
+    //Tìm đến node thứ 3 -> holder
+    public void deleteByIndex(int index) {
+        Node temp = head;
+        for(int i = 0; i < index-1 && temp.next != null; i++) {
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
+        numOfNodes++;
+    }
+
+    private class Node {
+        private Object data;
+        private Node next;
+
+        public Node(Object data) {
+            this.data = data;
+        }
+
+        public Object getData() {
+            return data;
+        }
+    }
+}
+
+
+
+
