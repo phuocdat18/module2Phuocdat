@@ -1,4 +1,4 @@
-package BasicList;
+package DSA_DanhSach.BasicList;
 
 public class MyListTest {
     public static void main(String[] args) {
