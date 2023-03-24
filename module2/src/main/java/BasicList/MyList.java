@@ -1,4 +1,4 @@
-package DSA_DanhSach.BasicList;
+package BasicList;
 
 import java.util.Arrays;
 
