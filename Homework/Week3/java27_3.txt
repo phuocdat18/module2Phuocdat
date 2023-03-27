@@ -1,0 +1,61 @@
+-------------------------------------------------------27/03
+
+Xem và demo và notes lai lại cấu trúc dữ liệu Stack & Queue
+- Stack và Queue là các cấu trúc dữ liệu trong lập trình.
++ Stack là một cấu trúc dữ liệu cho phép các phép toán "push" (đưa phần tử vào đỉnh) 
+và "pop" (lấy phần tử từ đỉnh) được thực hiện trên phần tử cuối cùng được đưa vào. 
+Các phần tử được lấy ra theo nguyên tắc LIFO (Last-In-First-Out), tức là phần tử cuối 
+cùng được đưa vào sẽ là phần tử đầu tiên được lấy ra.
+Vd: import java.util.Stack;
+
+public class Main {
+  public static void main(String[] args) {
+    Stack<Integer> stack = new Stack<>();
+
+    // Thêm phần tử vào stack
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+
+    // Lấy phần tử từ stack
+    int x = stack.pop();
+    System.out.println(x); // Output: 3
+
+    // Kiểm tra phần tử đầu tiên trong stack
+    int y = stack.peek();
+    System.out.println(y); // Output: 2
+  }
+}
+
++ Queue là một cấu trúc dữ liệu cho phép các phép toán "enqueue" (đưa phần tử vào cuối) 
+và "dequeue" (lấy phần tử từ đầu) được thực hiện trên phần tử đầu tiên được đưa vào. 
+Các phần tử được lấy ra theo nguyên tắc FIFO (First-In-First-Out), 
+tức là phần tử đầu tiên được đưa vào sẽ là phần tử đầu tiên được lấy ra.
+Vd: import java.util.LinkedList;
+import java.util.Queue;
+
+public class Main {
+  public static void main(String[] args) {
+    Queue<Integer> queue = new LinkedList<>();
+
+    // Thêm phần tử vào queue
+    queue.add(1);
+    queue.add(2);
+    queue.add(3);
+
+    // Lấy phần tử từ queue
+    int x = queue.remove();
+    System.out.println(x); // Output: 1
+
+    // Kiểm tra phần tử đầu tiên trong queue
+    int y = queue.peek();
+    System.out.println(y); // Output: 2
+  }
+}
+
++ Phân tích gen tics (Genetic Algorithm) là một kỹ thuật tối ưu hóa được áp dụng trong trí tuệ nhân tạo để tìm kiếm và tối ưu hóa các giải pháp cho các vấn đề tối ưu hóa, bằng cách sử dụng các phép đột biến, lai ghép và chọn lọc.
+Vd: public class GeneticAlgorithm {
+    // Các phương thức thuật toán sẽ được triển khai ở đây
+}
+
+

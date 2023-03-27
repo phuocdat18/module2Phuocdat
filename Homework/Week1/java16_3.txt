@@ -1,0 +1,158 @@
+-------------------------------------------------------16/03
++ Kế thừa là gì?
++ override là gì?
++ overloading là gì?
++ Từ khóa final
++ Đa hình trong kế thừa, cách sử dụng
++ toString() là gì (edited) 
+
+- Kế thừa (inheritance) là một tính năng trong lập trình hướng đối tượng (OOP) cho phép lớp con (subclass)
+kế thừa các thuộc tính và phương thức của lớp cha (superclass).
+Khi lớp con kế thừa các thuộc tính và phương thức của lớp cha, nó có thể sử dụng chúng như là của riêng mình
+hoặc mở rộng chúng bằng cách định nghĩa thêm các thuộc tính và phương thức mới.
+
+VD: class Animal {
+    String name;
+    int age;
+
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void makeSound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+class Dog extends Animal {
+    public Dog(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+Dog myDog = new Dog("Fido", 3);
+System.out.println(myDog.name); // Output: Fido
+myDog.makeSound(); // Output: Bark
+
+- Override là việc ghi đè phương thức được kế thừa từ lớp cha bằng cách định nghĩa lại nó trong lớp con.
+Khi đó, phương thức của lớp con sẽ được sử dụng thay vì phương thức của lớp cha.
+
+Vd: class Animal {
+    public void makeSound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+Animal myAnimal = new Animal();
+myAnimal.makeSound(); // Output: Animal is making a sound
+
+Dog myDog = new Dog();
+myDog.makeSound(); // Output: Bark
+
+- Overloading là việc định nghĩa nhiều phương thức cùng tên trong một lớp, nhưng với các danh sách tham số khác nhau.
+Khi gọi phương thức đó, trình biên dịch sẽ xác định phương thức nào phù hợp với danh sách tham số được cung cấp.
+
+Vd: class Calculator {
+    public int add(int x, int y) {
+        return x + y;
+    }
+
+    public double add(double x, double y) {
+        return x + y;
+    }
+}
+
+Calculator myCalculator = new Calculator();
+System.out.println(myCalculator.add(1, 2)); // Output: 3
+System.out.println(myCalculator.add(1.5, 2.5)); // Output: 4.0
+
+- Từ khóa final được sử dụng để chỉ định rằng một biến, một phương thức hoặc một lớp không thể thay đổi giá trị sau khi được khởi tạo hoặc kế thừa.
+Khi một biến hoặc phương thức được đánh dấu là final, chúng sẽ không thể bị ghi đè hoặc thay đổi giá trị.
+
+Vd: class MyClass {
+    final int x = 10;
+
+    public final void myMethod() {
+        System.out.println("This is a final method");
+    }
+}
+
+class MySubClass extends MyClass {
+    // Cannot override final method
+    // public void myMethod() {
+    //     System.out.println("This is an overridden method");
+    // }
+
+    final int y = 20;
+}
+
+MyClass myObj = new MyClass();
+// Cannot assign a new value to final variable
+// myObj.x = 5;
+
+- Đa hình trong kế thừa (polymorphism in inheritance) là khả năng của đối tượng để thực hiện nhiều hành động khác nhau
+dựa trên ngữ cảnh mà nó được sử dụng. Đa hình có thể được đạt được trong kế thừa bằng cách sử dụng kỹ thuật ghi đè phương thức (method overriding)
+hoặc đa hình nạp chồng phương thức (method overloading).
+
+Vd: class Animal {
+    public void makeSound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Meow");
+    }
+}
+
+Animal myAnimal = new Animal();
+myAnimal.makeSound(); // Output: Animal is making a sound
+
+Dog myDog = new Dog();
+myDog.makeSound(); // Output: Bark
+
+Cat myCat = new Cat();
+myCat.makeSound(); // Output: Meow
+
+- toString() là một phương thức trong Java được sử dụng để trả về một chuỗi mô tả đối tượng.
+Nó thường được sử dụng để hiển thị thông tin của đối tượng cho người dùng hoặc để ghi đối tượng vào một file.
+
+Vd: class Person {
+    String name;
+    int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Age: " + age;
+    }
+}
+
+Person myPerson = new Person("John", 30);
+System.out.println(myPerson.toString()); // Output: Name: John, Age: 30
