@@ -1,4 +1,4 @@
-package BtCustomer;
+package BtCustomer.BookStore;
 
 import java.util.Comparator;
 
