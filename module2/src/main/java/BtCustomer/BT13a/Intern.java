@@ -48,4 +48,13 @@ public class Intern extends Employee{
     public void setUniversityName(String universityName) {
         this.universityName = universityName;
     }
+
+    @Override
+    public String toString() {
+        return "Intern{" +
+                "majors='" + majors + '\'' +
+                ", semester=" + semester +
+                ", universityName='" + universityName + '\'' +
+                '}';
+    }
 }

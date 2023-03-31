@@ -16,8 +16,18 @@ public class DehaCompany {
         employees = new ArrayList<>();
         //long id, String fullName, Date birthDay, String phone, String email,
         // EmployeeType employeeType, int expInYear, String proSkill
-        Employee ep1 = new Experience(1L, "Quang Dang", new Date(1992, 7, 18), "033399457133",
+        Employee ep1 = new Experience(1, "Quang Dang", new Date(1992, 7, 18), "033399457133",
                 "quang.dang@codegym.vn", EmployeeType.Experience, 5, "Chem gio");
+        employees.add(ep1);
+        employees.add(new Employee(2, "Long", new Date(1999, 3, 19), "08514512364",
+                "long@gmail.com",EmployeeType.Fresher));
+        employees.add(new Employee(3, "Đạt", new Date(1999, 3, 18), "0856419555",
+                "dat@gmail.com",EmployeeType.Experience));
+        employees.add(new Employee(4, "Dũng", new Date(1999, 7, 23), "0545242364",
+                "dung@gmail.com",EmployeeType.Intern));
+        for (int i = employees.size() - 3; i < employees.size(); i++) {
+            System.out.println(employees.get(i).toString());
+        }
         // String majors, int semester, String universityName)
         Employee ep2 = new Intern("Chem gio", 4, "Duy Tan");
         ep2.setFullName("Quoc Phap");
@@ -26,18 +36,18 @@ public class DehaCompany {
 
 
         Employee ep3 = new Fresher(new Date(), "A", "ĐH huế");
-        employees.add(ep3);
-        employees.add(ep1);
-        employees.add(ep2);
+//        employees.add(ep3);
+//        employees.add(ep1);
+//        employees.add(ep2);
     }
 
     public void showEmployees() {
-        System.out.printf("%5s | %10s | %30s | %20s | %30s | %10s \n",
-                "ID", "Name", "Birthday", "Phone", "Email", "Employee Type");
+        System.out.printf("%5s | %10s | %30s | %20s | %30s | %10s | %30s \n",
+                "ID", "Name", "Birthday", "Phone", "Email", "Employee Type", "certificates");
         for (int i = 0; i < employees.size(); i++) {
             Employee e = employees.get(i);
-            System.out.printf("%5s | %10s | %30s | %20s | %30s | %10s \n",
-                    e.getId(), e.getFullName(), e.getBirthDay(), e.getPhone(), e.getEmail(), e.getEmployeeType());
+            System.out.printf("%5s | %10s | %30s | %20s | %30s | %10s | %30s \n",
+                    e.getId(), e.getFullName(), e.getBirthDay(), e.getPhone(), e.getEmail(), e.getEmployeeType(), e.getCertificates());
         }
     }
 

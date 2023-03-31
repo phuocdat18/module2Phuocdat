@@ -51,4 +51,13 @@ public class Fresher extends Employee {
     public void setEducation(String education) {
         this.education = education;
     }
+
+    @Override
+    public String toString() {
+        return "Fresher{" +
+                "graduationDate=" + graduationDate +
+                ", graduationRank='" + graduationRank + '\'' +
+                ", education='" + education + '\'' +
+                '}';
+    }
 }
