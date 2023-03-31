@@ -95,6 +95,11 @@ public class DehaCompany {
                 inputEmployee(employee, EmployeeType.Fresher);
                 break;
             }
+//            case 3: {
+//                employee = new Intern(maxId() + 1, fullName, date, phone, email, EmployeeType.Intern);
+//                inputEmployee(employee, EmployeeType.Intern);
+//                break;
+//            }
         }
         employees.add(employee);
         showEmployees();
