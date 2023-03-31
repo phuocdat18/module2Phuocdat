@@ -1,5 +1,4 @@
 package BtCustomer.BT13a;
-
 import java.util.Date;
 
 public class Fresher extends Employee {
@@ -8,6 +7,9 @@ public class Fresher extends Employee {
     private String graduationRank;
 
     private String education;
+    public Fresher() {
+
+    }
 
     public Fresher(Date graduationDate, String graduationRank, String education) {
         this.graduationDate = graduationDate;
@@ -21,6 +23,9 @@ public class Fresher extends Employee {
         this.graduationDate = graduationDate;
         this.graduationRank = graduationRank;
         this.education = education;
+    }
+    public Fresher(long id, String fullName, Date date, String phone, String email, EmployeeType fresher) {
+        super(id, fullName, date, phone, email, fresher );
     }
 
     public Date getGraduationDate() {
