@@ -1,7 +1,9 @@
 package BtCustomer.BT13a;
 
 
+import BtCustomer.BookStore.Book;
 import BtCustomer.BookStore.BookStore;
+import BtCustomer.BookStore.ComparatorByPrice;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,18 +18,18 @@ public class DehaCompany {
         employees = new ArrayList<>();
         //long id, String fullName, Date birthDay, String phone, String email,
         // EmployeeType employeeType, int expInYear, String proSkill
-        Employee ep1 = new Experience(1, "Quang Dang", new Date(1992, 7, 18), "033399457133",
+        Employee ep1 = new Experience(1, "Quang Dang", new Date(92, 7, 18), "033399457133",
                 "quang.dang@codegym.vn", EmployeeType.Experience, 5, "Chem gio");
         employees.add(ep1);
-        employees.add(new Employee(2, "Long", new Date(1999, 3, 19), "08514512364",
+        employees.add(new Employee(2, "Long", new Date(99, 3, 19), "08514512364",
                 "long@gmail.com",EmployeeType.Fresher));
-        employees.add(new Employee(3, "Đạt", new Date(1999, 3, 18), "0856419555",
+        employees.add(new Employee(3, "Đạt", new Date(99, 3, 18), "0856419555",
                 "dat@gmail.com",EmployeeType.Experience));
-        employees.add(new Employee(4, "Dũng", new Date(1999, 7, 23), "0545242364",
+        employees.add(new Employee(4, "Dũng", new Date(99, 7, 23), "0545242364",
                 "dung@gmail.com",EmployeeType.Intern));
-        for (int i = employees.size() - 3; i < employees.size(); i++) {
-            System.out.println(employees.get(i).toString());
-        }
+//        for (int i = employees.size() - 3; i < employees.size(); i++) {
+//            System.out.println(employees.get(i).toString());
+//        }
         // String majors, int semester, String universityName)
         Employee ep2 = new Intern("Chem gio", 4, "Duy Tan");
         ep2.setFullName("Quoc Phap");
@@ -42,12 +44,21 @@ public class DehaCompany {
     }
 
     public void showEmployees() {
-        System.out.printf("%5s | %10s | %30s | %20s | %30s | %10s | %30s \n",
-                "ID", "Name", "Birthday", "Phone", "Email", "Employee Type", "certificates");
+        System.out.printf("%5s | %10s | %30s | %20s | %30s | %10s \n",
+                "ID", "Name", "Birthday", "Phone", "Email", "Employee Type");
         for (int i = 0; i < employees.size(); i++) {
             Employee e = employees.get(i);
-            System.out.printf("%5s | %10s | %30s | %20s | %30s | %10s | %30s \n",
-                    e.getId(), e.getFullName(), e.getBirthDay(), e.getPhone(), e.getEmail(), e.getEmployeeType(), e.getCertificates());
+            System.out.printf("%5s | %10s | %30s | %20s | %30s | %10s \n",
+                    e.getId(), e.getFullName(), e.getBirthDay(), e.getPhone(), e.getEmail(), e.getEmployeeType());
+        }
+    }
+    public void showEmployees(List<Employee> employees) {
+        System.out.printf("%5s | %10s | %30s | %20s | %30s | %10s \n",
+                "ID", "Name", "Birthday", "Phone", "Email", "Employee Type");
+        for (int i = 0; i < employees.size(); i++) {
+            Employee e = employees.get(i);
+            System.out.printf("%5s | %10s | %30s | %20s | %30s | %10s \n",
+                    e.getId(), e.getFullName(), e.getBirthDay(), e.getPhone(), e.getEmail(), e.getEmployeeType());
         }
     }
 
@@ -136,16 +147,16 @@ public class DehaCompany {
 
      private void inputEmployeeFresher(Employee employee) {
      System.out.println("Nhập ngày tot nghiệp:");
-     Date dateGraduation = new Date();
+     Date graduationDate = new Date();
      System.out.println("Nhập xếp loại tốt nghiệp: ");
-     String rankGraduation = scanner.nextLine();
+     String graduationRank = scanner.nextLine();
      System.out.println("Tốt nghiệp trường:");
      String graduation = scanner.nextLine();
      if (employee instanceof Fresher) {
      Fresher fresher = (Fresher) employee;
      fresher.setEducation(graduation);
-     fresher.setGraduationDate(dateGraduation);
-     fresher.setGraduationRank(rankGraduation);
+     fresher.setGraduationDate(graduationDate);
+     fresher.setGraduationRank(graduationRank);
      }
      employees.add(employee);
      }
@@ -164,8 +175,24 @@ public class DehaCompany {
      ex.setExpInYear(expYear);
      }
      employees.add(employee);
-     System.out.println(employee);
+
      }
+    private void inputEmployeeIntern(Employee employee) {
+        System.out.println("Chuyên ngành đang học là gì:");
+        String majors = scanner.nextLine();
+        System.out.println("Học kì đang học: ");
+        int semester = scanner.nextInt();
+        System.out.println("Trường học:");
+        String universityName = scanner.nextLine();
+        if (employee instanceof Intern) {
+            Intern intern = (Intern) employee;
+            intern.setMajors(majors);
+            intern.setSemester(semester);
+            intern.setUniversityName(universityName);
+        }
+        employees.add(employee);
+
+    }
 
     private void inputEmployee(Employee employee, EmployeeType type) {
         switch (type) {
@@ -213,11 +240,9 @@ public class DehaCompany {
             System.out.println("Nhấn 1. Xem danh sách nhân viên");
             System.out.println("Nhấn 2. Thêm nhân viên danh sách");
             System.out.println("Nhấn 3. Sửa thông tin nhân viên");
-            System.out.println("Nhấn 4. Xóa thông tin nhân viên");
+            System.out.println("Nhấn 4. Sắp xếp nhân viên theo tên");
             System.out.println("Nhấn 5. Sắp xếp nhân viên theo ID");
-            System.out.println("Nhấn 6. Sắp xếp nhân viên theo tên");
-            System.out.println("Nhấn 7. Tìm kiếm nhân viên theo tên");
-            System.out.println("Nhấn 8. Tìm kiếm kiếm nhân viên bằng thông tin");
+            System.out.println("Nhấn 6. Tìm kiếm nhân viên theo tên");
             int actionMenu = Integer.parseInt(scan.nextLine());
             switch (actionMenu) {
                 case 1:
@@ -228,6 +253,15 @@ public class DehaCompany {
                     break;
                 case 3:
                     dehaCompany.editEmployee();
+                    break;
+                case 4:
+                    dehaCompany.sortByName();
+                    break;
+                case 5:
+                    dehaCompany.sortById();
+                    break;
+                case 6:
+                    dehaCompany.searchByName();
                     break;
                 default:
                     System.out.println("Nhập sai! Vui lòng nhập lại");
@@ -252,6 +286,27 @@ public class DehaCompany {
 
         } while (checkActionMenu);
 
+    }
+    private void searchByName() {
+        System.out.println("Nhập tên bạn muốn tìm kiếm: ");
+        String kw = scanner.nextLine();
+        List<Employee> results = new ArrayList<>();
+        for (int i = 0; i < employees.size(); i++) {
+            if(employees.get(i).getFullName().contains(kw)){
+                results.add(employees.get(i));
+            }
+        }
+        showEmployees(results);
+    }
+    private void sortByName() {
+        employees.sort(new ComparatorByName());
+        showEmployees();
+    }
+
+    private void sortById() {
+//        Comparator comparator = new ComparatorByPrice();
+        employees.sort(new ComparatorById());
+        showEmployees();
     }
     public long maxId() {
         employees.sort(new ComparatorById());
