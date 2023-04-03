@@ -1,4 +1,5 @@
-package JavaCollectionFramework.Postorder_BinarySearchTree;
+package JavaCollectionFramework.DeleteBinarySearchTree;
+
 
 public class BinaryTree {
     Node root;
@@ -35,5 +36,4 @@ public class BinaryTree {
         System.out.println("Cây nhị phân theo thứ tự trước:");
         tree.preOrderTraversal(tree.root);
     }
-
 }

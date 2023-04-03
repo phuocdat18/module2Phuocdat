@@ -1,4 +1,4 @@
-package JavaCollectionFramework.Postorder_BinarySearchTree;
+package JavaCollectionFramework.DeleteBinarySearchTree;
 
 public class Node {
     int data;
@@ -10,5 +10,7 @@ public class Node {
         left = null;
         right = null;
     }
+
+
 
 }
