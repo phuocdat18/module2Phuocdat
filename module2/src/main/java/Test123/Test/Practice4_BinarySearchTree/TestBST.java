@@ -1,7 +1,14 @@
-package JavaCollectionFramework.Practice4_BinarySearchTree;
+package Test123.Test.Practice4_BinarySearchTree;
+
+import BtCustomer.BT13a.Employee;
+
+import java.util.List;
+import java.util.Scanner;
 
 public class TestBST {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         //create a BST
         BST<String> tree = new BST<>();
         tree.insert("1");

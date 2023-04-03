@@ -26,4 +26,5 @@ public class BinaryTree {
         System.out.println("Trình tự duyệt trước của cây nhị phân là:");
         tree.printPreorder(tree.root);
     }
+
 }

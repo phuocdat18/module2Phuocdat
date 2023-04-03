@@ -1,4 +1,4 @@
-package JavaCollectionFramework.Practice4_BinarySearchTree;
+package Test123.Test.Practice4_BinarySearchTree;
 
 public class TreeNode<E> {
     protected E element;

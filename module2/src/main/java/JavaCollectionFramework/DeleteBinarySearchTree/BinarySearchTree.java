@@ -112,18 +112,19 @@ public class BinarySearchTree<E extends Comparable<E>> {
         }
         size--;
         return true;
-    }
-    public static void main(String[] args) {
-        BinaryTree tree = new BinaryTree();
-        tree.root = new JavaCollectionFramework.DeleteBinarySearchTree.Node(27);
-        tree.root.left = new JavaCollectionFramework.DeleteBinarySearchTree.Node(14);
-        tree.root.right = new JavaCollectionFramework.DeleteBinarySearchTree.Node(35);
-        tree.root.left.left = new JavaCollectionFramework.DeleteBinarySearchTree.Node(10);
-        tree.root.left.right = new JavaCollectionFramework.DeleteBinarySearchTree.Node(19);
-        tree.root.right.left = new JavaCollectionFramework.DeleteBinarySearchTree.Node(31);
-        tree.root.right.right = new JavaCollectionFramework.DeleteBinarySearchTree.Node(42);
 
-        System.out.println("Cây nhị phân theo thứ tự trước:");
-        tree.preOrderTraversal(tree.root);
     }
+//    public static void main(String[] args) {
+//        BinaryTree tree = new BinaryTree();
+//        tree.root = new JavaCollectionFramework.DeleteBinarySearchTree.Node(27);
+//        tree.root.left = new JavaCollectionFramework.DeleteBinarySearchTree.Node(14);
+//        tree.root.right = new JavaCollectionFramework.DeleteBinarySearchTree.Node(35);
+//        tree.root.left.left = new JavaCollectionFramework.DeleteBinarySearchTree.Node(10);
+//        tree.root.left.right = new JavaCollectionFramework.DeleteBinarySearchTree.Node(19);
+//        tree.root.right.left = new JavaCollectionFramework.DeleteBinarySearchTree.Node(31);
+//        tree.root.right.right = new JavaCollectionFramework.DeleteBinarySearchTree.Node(42);
+//
+//        System.out.println("Cây nhị phân theo thứ tự trước:");
+//        tree.preOrderTraversal(tree.root);
+//    }
 }
