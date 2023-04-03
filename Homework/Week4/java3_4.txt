@@ -1,0 +1,132 @@
+-------------------------------------------------------27/03
+
+Demo và notes
+Làm thế nào để Set/HashSet đảm bảo các phần tử không trùng lặp
+
+private transient HashMap<E,Object> map;
+ 
+//Constructor - 1
+ 
+public HashSet()
+{
+        //Creating internally backing HashMap object
+        map = new HashMap<>();          
+}
+ 
+//Constructor - 2
+ 
+public HashSet(Collection<? extends E> c)
+{
+        //Creating internally backing HashMap object
+        map = new HashMap<>(Math.max((int) (c.size()/.75f) + 1, 16));     
+        addAll(c);
+}
+ 
+//Constructor - 3
+ 
+public HashSet(int initialCapacity, float loadFactor)
+{
+        //Creating internally backing HashMap object
+        map = new HashMap<>(initialCapacity, loadFactor); 
+}
+ 
+//Constructor - 4
+ 
+public HashSet(int initialCapacity)
+{
+        //Creating internally backing HashMap object
+        map = new HashMap<>(initialCapacity);          
+}
+
+- Mỗi constructor bên trong HashSet đều khởi tạo một HashMap object, 
+như vậy có thể thấy bên trong HashSet sử dụng 
+HashMap để triển khai các tính năng.
+- HashMap#put method trả về phần value khi của key khi nó đã tồn tại 
+trước đó hoặc trả về null khi chưa tồn tại. Vì vậy nếu HashMap.put() 
+trả về null nghĩa là thêm phần tử thành công.
+
+
+Equals và hashcode
+- Equals: Trong java, Object class mặc định là cha của tất cả các class, 
+bên trong nó định nghĩa sẵn 2 method equals() và  hashCode() – đều này 
+có nghĩa rằng tất cả các class đều mặc định sẽ có 2 method này.
+Vd: class Money {
+    int amount;
+    String currencyCode;
+
+    public Money(int amount, String currencyCode) {
+        this.amount = amount;
+        this.currencyCode = currencyCode;
+    }
+}
+
+class Main {
+
+    public static void main(String[] agrs) {
+        Money income = new Money(55, "USD");
+        Money expenses = new Money(55, "USD");
+        boolean balanced = income.equals(expenses); // FALSE
+
+    }
+}
+
++ Muốn equals() so sánh giá trị các thuộc tính trong object thay 
+vì so sánh địa chỉ thì có thể override equals().
+Vd: class Money {
+    int amount;
+    String currencyCode;
+
+    public Money(int amount, String currencyCode) {
+        this.amount = amount;
+        this.currencyCode = currencyCode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Money))
+            return false;
+        Money other = (Money)o;
+        boolean currencyCodeEquals = (this.currencyCode == null && other.currencyCode == null)
+                || (this.currencyCode != null && this.currencyCode.equals(other.currencyCode));
+        return this.amount == other.amount && currencyCodeEquals;
+    }
+}
+
+class Main {
+
+    public static void main(String[] agrs) {
+        Money income = new Money(55, "USD");
+        Money expenses = new Money(55, "USD");
+        boolean balanced = income.equals(expenses); // TRUE 
+    }
+}
+
+- HashCode: hashCode() trả về một số nguyên đại diện cho 1 instance của class. 
+Khi 2 object là bằng nhau thì hashCode() method của chúng cũng phải trả về giá 
+trị bằng nhau. Đó là lý do nếu đã override equals() method thì cũng phải 
+override hashCode() method.
++ Tính nhất quán của equals và hashCode:
+Theo nguyên tắc mà hashCode() đưa ra thì 2 object bằng nhau thì phải có cùng 
+mã hashCode(), vì vậy khi chúng ta override equals() method thì nhất định 
+phải override hashCode() method.
+Vd: class Team {
+
+    String city;
+    String department;
+
+    public Team(String city, String department) {
+        this.city = city;
+        this.department = department;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Team team = (Team) o;
+        return Objects.equals(city, team.city) &&
+                Objects.equals(department, team.department);
+    }
+}
