@@ -1,0 +1,93 @@
+-------------------------------------------------------04/04
+
+Xem và demo
++ kĩ thuật đổi tên biến
++ kĩ thuật đổi tên phương thức
++ kĩ thuật tách biến
++ kĩ thuật tách hằng
++ kĩ thuật tách phương thức
+
+
+
+-Kĩ thuật đổi tên biến:
+Kĩ thuật đổi tên biến là quá trình thay đổi tên của một biến trong mã nguồn để 
+làm cho mã nguồn dễ hiểu hơn hoặc thay đổi tên biến để phù hợp với thay đổi 
+yêu cầu của chương trình.
+
+Ví dụ:
+Trong mã nguồn sau đây, biến "num" được đổi tên thành "numberOfStudents" để 
+giải thích rõ hơn cho người đọc về mục đích của biến:
+
+int num = 10;
+// đổi tên biến num thành numberOfStudents
+int numberOfStudents = 10;
+
+- Kĩ thuật đổi tên phương thức:
+Kĩ thuật đổi tên phương thức là quá trình thay đổi tên của một phương thức 
+trong mã nguồn để làm cho mã nguồn dễ hiểu hơn hoặc thay đổi tên phương thức 
+để phù hợp với thay đổi yêu cầu của chương trình.
+
+Ví dụ:
+Trong mã nguồn sau đây, phương thức "printInfo" được đổi tên thành 
+"displayInformation" để giải thích rõ hơn cho người đọc về mục đích của phương thức:
+
+public void printInfo() {
+    // code
+}
+// đổi tên phương thức printInfo thành displayInformation
+public void displayInformation() {
+    // code
+}
+
+- Kĩ thuật tách biến:
+Kĩ thuật tách biến là quá trình tách một biến lớn thành các biến nhỏ hơn để 
+dễ quản lý hơn hoặc để phù hợp với các yêu cầu của chương trình.
+
+Ví dụ:
+Trong mã nguồn sau đây, biến "fullName" được tách thành hai biến "firstName" 
+và "lastName" để dễ quản lý hơn:
+
+String fullName = "John Smith";
+// tách biến fullName thành firstName và lastName
+String firstName = "John";
+String lastName = "Smith";
+
+- Kĩ thuật tách hằng:
+Kĩ thuật tách hằng là quá trình tách một hằng số lớn thành các hằng số nhỏ hơn để 
+dễ quản lý hơn hoặc để phù hợp với các yêu cầu của chương trình.
+
+Ví dụ:
+Trong mã nguồn sau đây, hằng số "MAX_SIZE" được tách thành các hằng số "MAX_WIDTH" 
+và "MAX_HEIGHT" để dễ quản lý hơn:
+
+final int MAX_SIZE = 100;
+// tách hằng số MAX_SIZE thành MAX_WIDTH và MAX_HEIGHT
+final int MAX_WIDTH = 50;
+final int MAX_HEIGHT = 50;
+
+- Kĩ thuật tách phương thức:
+Kĩ thuật tách phương thức là quá trình tách một phương thức lớn thành các phương 
+thức nhỏ hơn để dễ quản lý hơn hoặc để phù hợp với các yêu cầu của chương trình.
+
+Ví dụ:
+Trong mã nguồn sau đây, phương thức "calculateSalary" được tách thành các phương 
+thức nhỏ hơn "calculateBasicSalary" và "calculateBonus" để giảm độ phức tạp của 
+phương thức "calculateSalary":
+
+public double calculateSalary(int hoursWorked, double hourlyRate) {
+    double basicSalary = calculateBasicSalary(hoursWorked, hourlyRate);
+    double bonus = calculateBonus(basicSalary);
+    return basicSalary + bonus;
+}
+
+public double calculateBasicSalary(int hoursWorked, double hourlyRate) {
+    return hoursWorked * hourlyRate;
+}
+
+public double calculateBonus(double basicSalary) {
+    return basicSalary * 0.1;
+}
+
+Việc tách phương thức là giảm độ phức tạp của phương thức "calculateSalary" và 
+tăng tính tái sử dụng của mã nguồn, vì các phương thức nhỏ hơn có thể được sử 
+dụng lại trong các phương thức khác trong chương trình.
