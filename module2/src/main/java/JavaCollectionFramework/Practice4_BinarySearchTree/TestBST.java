@@ -4,13 +4,13 @@ public class TestBST {
     public static void main(String[] args) {
         //create a BST
         BST<String> tree = new BST<>();
-        tree.insert("Đạt");
-        tree.insert("Bằng");
-        tree.insert("Thi");
-        tree.insert("Pháp");
-        tree.insert("Hưng");
-        tree.insert("Nghĩa");
-        tree.insert("Hoàn");
+        tree.insert("1");
+        tree.insert("5");
+        tree.insert("4");
+        tree.insert("7");
+        tree.insert("6");
+        tree.insert("9");
+        tree.insert("3");
         //traverse tree
         System.out.println("Đặt hàng (sắp xếp): ");
         tree.inorder();
