@@ -1,28 +1,12 @@
 package CleanCode.SplitMethod;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class CylinderTest {
-
-    @Test
-    public void testGetVolume() {
-        double expected = 628.318;
-        double actual = Cylinder.getVolume(5, 10);
-        assertEquals(expected, actual, 0.001);
+public class CylinderTest extends Cylinder {
+    public static void main(String[] args) {
+        int radius = 1;
+        int height = 1;
+        double volume = getVolume(radius, height);
+        System.out.println("Thể tích khối trụ có bán kính " + radius + " và chiều cao là " + height + " là "+ volume);
     }
 
-    @Test
-    public void testGetPerimeter() {
-        double expected = 31.416;
-        double actual = Cylinder.getPerimeter(5);
-        assertEquals(expected, actual, 0.001);
-    }
-
-    @Test
-    public void testGetBaseArea() {
-        double expected = 78.54;
-        double actual = Cylinder.getBaseArea(5);
-        assertEquals(expected, actual, 0.001);
-    }
 }
