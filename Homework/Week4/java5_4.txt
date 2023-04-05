@@ -1,0 +1,270 @@
+-------------------------------------------------------05/04
+
+Đọc và tìm hiểu 4 tính chất hướng đối tượng
+Đọc và tìm hiểu nguyên lí SOLID
+
+----4 Tính chất hướng đối tượng
+- Tính đóng gói (encapsulation) và che giấu thông tin (information hiding) : Là hai khái niệm quan trọng liên quan đến
+việc bảo vệ tính toàn vẹn và an toàn dữ liệu của một đối tượng.
+- Tính đóng gói (encapsulation) là khả năng giấu thông tin của một đối tượng bên trong lớp của nó. Điều này có nghĩa
+là các biến và phương thức của đối tượng chỉ có thể được truy cập thông qua các phương thức công cộng của đối tượng,
+và không thể truy cập trực tiếp từ bên ngoài đối tượng. Điều này giúp bảo vệ dữ liệu của đối tượng và ngăn ngừa các
+thành phần bên ngoài ghi đè trực tiếp vào các biến và phương thức của đối tượng.
+- Che giấu thông tin (information hiding) là một khái niệm liên quan đến tính đóng gói, nhằm đảm bảo rằng dữ liệu bên
+trong một đối tượng không thể truy cập trực tiếp từ bên ngoài đối tượng. Thay vào đó, các phương thức công cộng được
+cung cấp để cho phép các thành phần bên ngoài truy cập và tương tác với dữ liệu của đối tượng. Việc che giấu thông tin
+giúp đảm bảo tính toàn vẹn của dữ liệu của đối tượng và tránh việc truy cập và sửa đổi dữ liệu của đối tượng bên ngoài
+phạm luật.
+Vd: public class Employee {
+        private String name;
+        private int age;
+        private double salary;
+
+        // Constructor
+        public Employee(String name, int age, double salary) {
+            this.name = name;
+            this.age = age;
+            this.salary = salary;
+        }
+
+        // Getter methods
+        public String getName() {
+            return name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public double getSalary() {
+            return salary;
+        }
+
+        // Setter methods
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+
+        public void setSalary(double salary) {
+            this.salary = salary;
+        }
+    }
+
++ Trong ví dụ này, lớp Employee chứa ba biến name, age, và salary đều được đánh dấu là private. Các phương thức getter
+và setter được sử dụng để truy cập và thiết lập giá trị của các biến này thông qua phương thức công cộng. Điều này đảm
+bảo tính đóng gói của dữ liệu của đối tượng và ngăn ngừa truy cập trực tiếp vào các biến này từ bên ngoài đối tượng.
+public class Main {
+    public static void main(String[] args) {
+        Employee emp = new Employee("John Doe", 30, 50000);
+
+        // Accessing private variables
+
+
+
+- Kế thừa (Inheritance) là một tính năng quan trọng trong lập trình hướng đối tượng (OOP) trong Java.
+Kế thừa cho phép lớp con (subclass) kế thừa tất cả các thuộc tính và phương thức của lớp cha (superclass),
+và cũng cho phép lớp con có thể thêm các thuộc tính và phương thức mới hoặc ghi đè lên (override) các phương thức của lớp cha.
+Vd: class Animal {
+        private String name;
+        private int age;
+
+        public Animal(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public void makeSound() {
+            System.out.println("This animal makes a sound");
+        }
+    }
+
+    class Dog extends Animal {
+        public Dog(String name, int age) {
+            super(name, age);
+        }
+
+        public void makeSound() {
+            System.out.println("Woof!");
+        }
+
+        public void fetch() {
+            System.out.println("The dog is fetching.");
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            Dog dog = new Dog("Buddy", 3);
+            dog.makeSound(); // Output: Woof!
+            dog.fetch(); // Output: The dog is fetching.
+        }
+    }
+
+
+- Đa hình (polymorphism) là một tính năng quan trọng trong lập trình hướng đối tượng (OOP) trong Java, cho phép các
+đối tượng của các lớp khác nhau được xử lý như nhau, dựa trên mối quan hệ giữa các lớp. Các đối tượng có thể được gọi
+bằng cùng một phương thức, nhưng khi chạy chương trình, phương thức sẽ được thực thi tương ứng với đối tượng được gọi.
+Vd: class Animal {
+        public void makeSound() {
+            System.out.println("This animal makes a sound");
+        }
+    }
+
+    class Dog extends Animal {
+        public void makeSound() {
+            System.out.println("Woof!");
+        }
+    }
+
+    class Cat extends Animal {
+        public void makeSound() {
+            System.out.println("Meow!");
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            Animal animal1 = new Animal();
+            Animal animal2 = new Dog();
+            Animal animal3 = new Cat();
+
+            animal1.makeSound(); // Output: This animal makes a sound
+            animal2.makeSound(); // Output: Woof!
+            animal3.makeSound(); // Output: Meow!
+        }
+    }
+
++ Nạp chồng (overloading) là một tính năng quan trọng trong lập trình hướng đối tượng (OOP) trong Java, cho phép chúng
+ta định nghĩa nhiều phương thức cùng tên trong một lớp, nhưng với các tham số khác nhau. Khi gọi phương thức đó, Java
+sẽ tự động xác định xem phương thức nào cần được gọi dựa trên số và kiểu các tham số.
+Vd: public class Calculator {
+        public int add(int x, int y) {
+            return x + y;
+        }
+
+        public double add(double x, double y) {
+            return x + y;
+        }
+
+        public int add(int x, int y, int z) {
+            return x + y + z;
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            Calculator calculator = new Calculator();
+
+            System.out.println(calculator.add(1, 2)); // Output: 3
+            System.out.println(calculator.add(1.5, 2.5)); // Output: 4.0
+            System.out.println(calculator.add(1, 2, 3)); // Output: 6
+        }
+    }
+
+ + Ghi đè (overriding) là một tính năng của kế thừa trong Java, cho phép lớp con định nghĩa lại một phương thức đã
+ được định nghĩa trong lớp cha và cung cấp một triển khai khác cho phương thức đó.
+ Vd: public class Animal {
+         public void makeSound() {
+             System.out.println("The animal makes a sound");
+         }
+     }
+
+     public class Cat extends Animal {
+         @Override
+         public void makeSound() {
+             System.out.println("The cat meows");
+         }
+     }
+
+     public class Dog extends Animal {
+         @Override
+         public void makeSound() {
+             System.out.println("The dog barks");
+         }
+     }
+
+     public class Main {
+         public static void main(String[] args) {
+             Animal animal = new Animal();
+             animal.makeSound(); // Output: The animal makes a sound
+
+             Cat cat = new Cat();
+             cat.makeSound(); // Output: The cat meows
+
+             Dog dog = new Dog();
+             dog.makeSound(); // Output: The dog barks
+         }
+     }
+
+
+- Tính trừu tượng (abstraction) là một tính năng quan trọng trong lập trình hướng đối tượng, cho phép ẩn các chi tiết
+bên trong một đối tượng và chỉ hiển thị những thông tin cần thiết để sử dụng đối tượng đó. Tính trừu tượng giúp giảm
+sự phức tạp của mã nguồn, dễ dàng bảo trì và mở rộng mã nguồn.
+Trong Java, tính trừu tượng thường được thực hiện bằng cách sử dụng các lớp trừu tượng (abstract class) và các phương
+thức trừu tượng (abstract method).
+Vd: abstract class Shape {
+        protected int x;
+        protected int y;
+
+        public Shape(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public void move(int deltaX, int deltaY) {
+            this.x += deltaX;
+            this.y += deltaY;
+        }
+
+        public abstract void draw();
+    }
+
+    class Circle extends Shape {
+        private int radius;
+
+        public Circle(int x, int y, int radius) {
+            super(x, y);
+            this.radius = radius;
+        }
+
+        @Override
+        public void draw() {
+            System.out.println("Drawing a circle at (" + x + ", " + y + ") with radius " + radius);
+        }
+    }
+
+    class Rectangle extends Shape {
+        private int width;
+        private int height;
+
+        public Rectangle(int x, int y, int width, int height) {
+            super(x, y);
+            this.width = width;
+            this.height = height;
+        }
+
+        @Override
+        public void draw() {
+            System.out.println("Drawing a rectangle at (" + x + ", " + y + ") with width " + width + " and height " + height);
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            Shape circle = new Circle(10, 20, 5);
+            Shape rectangle = new Rectangle(30, 40, 10, 20);
+
+            circle.draw(); // Output: Drawing a circle at (10, 20) with radius 5
+            rectangle.draw(); // Output: Drawing a rectangle at (30, 40) with width 10 and height 20
+
+            circle.move(5, 10);
+            rectangle.move(-5, 10);
+
+            circle.draw(); // Output: Drawing a circle at (15, 30) with radius 5
+            rectangle.draw(); // Output: Drawing a rectangle at (25, 50) with width 10 and height 20
+        }
+    }
