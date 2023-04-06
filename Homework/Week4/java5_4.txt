@@ -268,3 +268,108 @@ Vd: abstract class Shape {
             rectangle.draw(); // Output: Drawing a rectangle at (25, 50) with width 10 and height 20
         }
     }
+ 
+-------------------------------------------------------
++ Ngoai lệ là gì
++ Xử lý ngoại lệ với try/catch: khối try/catch/finally: hoạt động như thế nào, ví dụ
++ Các ném ngoại lệ: lệnh throw và throws hoạt động như thế nào
+
+
+- Ngoại lệ là các lỗi phát sinh trong quá trình thực thi, các kiểu lỗi thường xảy ra:
+Lỗi cú pháp
+Vd: int x = 5 
+
+Lỗi khi chạy chương trình
+Vd:     public static void main(String[] args) {
+        int a = 10;
+        int b = 0;
+        int c = a/b;
+        System.out.println(c);
+    }
+}
+Lỗi về tính logic cấu trúc của chương trình
+Vd: public class Main {
+    public static void main(String[] args) {
+        int x = 5;
+        if (x > 10) {
+            System.out.println("x is greater than 10");
+        } else if (x > 0) {
+            System.out.println("x is positive");
+        } else {
+            System.out.println("x is not positive");
+        }
+    }
+}
+
+
+- Xử lý ngoại lệ với try/catch: khối try/catch/finally: hoạt động như thế nào, ví dụ
++  Khối try-catch dùng để: Tách phần giải quyết lỗi ra khỏi phần có thể sinh lỗi
+ 			   Quy định các loại ngoại lệ được bắt tại mức thực thi hiện hành
+Vd: public class Main {
+    public static void main(String[] args) {
+        try {
+            int[] arr = new int[5];
+            arr[10] = 50; // gán giá trị vào phần tử thứ 10 trong mảng
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Lỗi: vượt quá kích thước của mảng.");
+        }
+    }
+}
+
++ Khối catch dùng để: Khối mã try có thể có nhiều ngoại lệ xảy ra. Sử dụng nhiều khối catch để bắt và xử lý chi tiết các ngoại lệ đó.
+
++ Khối finally sẽ luôn luôn thực thi vô điều kiện sau try/catch.
+
+- Ném ngoại lệ: Sử dungh lệnh throw để ném các lỗi Runtime Error có sẵn hoặc các lỗi do người dừng tự định nghĩ. Sau đó các lỗi này có thể được bắt và bạn có thể thực hiện một hành động hợp lý.
++ Câu lệnh throw: được dùng khi cần phát sinh ngoại lệ trong một phương thức. Từ khóa throws được dùng với phương thứ để gây ra bất cứ checked hay unchecked exception nào và đồng thời nhường công việc xử lý ngoại lệ đó cho người gọi phương thức này.  Ngoại trừ những Error hoặc RuntimeException và các subclasses của chúng, sử dụng throws là cần thiết cho tất cả các ngoại lệ.
+Vd throw: public class Example {
+    public static void main(String[] args) {
+        try {
+            int x = divide(6, 0);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static int divide(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+}
+Vd throws: public class Example {
+    public static void main(String[] args) {
+        try {
+            int x = divide(6, 0);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static int divide(int a, int b) throws ArithmeticException {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        return a / b;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
