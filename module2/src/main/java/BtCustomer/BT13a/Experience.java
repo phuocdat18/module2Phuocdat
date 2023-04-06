@@ -3,6 +3,7 @@ package BtCustomer.BT13a;
 import java.util.Date;
 
 public class Experience extends Employee{
+    // Lớp con là "Experrience" kế thừa các thuộc tính và phương thức của lớp cha "Employee"
     private int ExpInYear;
     private String ProSkill;
     public Experience() {

@@ -228,6 +228,22 @@ public class DehaCompany {
                 }
                 break;
 
+            case Intern:
+                System.out.println("Chuyên ngành học:");
+                String majors = scanner.nextLine();
+                System.out.println("Học kỳ đang học: ");
+                int semester = Integer.parseInt(scanner.nextLine());
+                System.out.println("Trường đang học:");
+                String universityName = scanner.nextLine();
+
+                if (employee instanceof Intern) {
+                    Intern intern = (Intern) employee;
+                    intern.setMajors(majors);
+                    intern.setSemester(semester);
+                    intern.setUniversityName(universityName);
+                }
+                break;
+
         }
     }
 

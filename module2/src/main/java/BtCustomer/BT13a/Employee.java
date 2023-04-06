@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 public class Employee {
+
+    // Áp dụng tính đóng gói: Đảm bảo tính đóng gói của dữ liệu và ngăn ngừa truy cập trực tiếp vào các biến này từ
+    // bên ngoài đối tượng bằng các phương thức getter và setter, private
     private long id;
     private String fullName;
     private Date birthDay;
