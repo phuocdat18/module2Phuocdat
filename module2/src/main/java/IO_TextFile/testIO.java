@@ -5,11 +5,12 @@ public class testIO {
 
     public static void main(String[] args) {
         // đường dẫn đến tệp tin
-        File x = new File("D:\\Documents\\CodeGym\\Báo cáo\\abc.txt");
+        File x = new File("./abc.txt");
 
         System.out.println("Tên file: " + x.getName());
         System.out.println("Thư mục: " + x.getParent());
-        System.out.println("File: " + x.getPath());
+        System.out.println("File: " + x.getPath());         // ra cái gì:
+        System.out.println("File 1: " + x.getAbsolutePath());         // ra cái gì:
 
         // tạo một đối tượng File với đường dẫn đã cho
 //        File file = new File(filePath);
