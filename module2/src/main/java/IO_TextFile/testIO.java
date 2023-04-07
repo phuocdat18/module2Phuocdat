@@ -1,11 +1,15 @@
 package IO_TextFile;
 import java.io.File;
 
-public class test {
+public class testIO {
 
     public static void main(String[] args) {
         // đường dẫn đến tệp tin
-        File x = new File("D:\\Documents\\CodeGym\\Báo cáo\\abc.txt") ;
+        File x = new File("D:\\Documents\\CodeGym\\Báo cáo\\abc.txt");
+
+        System.out.println("Tên file: " + x.getName());
+        System.out.println("Thư mục: " + x.getParent());
+        System.out.println("File: " + x.getPath());
 
         // tạo một đối tượng File với đường dẫn đã cho
 //        File file = new File(filePath);

@@ -14,7 +14,7 @@ public class test {
 //        return a+b;
 //    }
 //    public static void main(String[] args) {
-//        test d = new test();
+//        testIO d = new testIO();
 //        int s = d.sum1(10, 15);
 //        System.out.println(s);
 //    }
@@ -23,7 +23,7 @@ public class test {
 //        return a+b;
 //    }
 //    public static void main(String[] args) {
-//        test d = new test();
+//        testIO d = new testIO();
 //        int s = d.sum1(10, 15);
 //        System.out.println(s);
 //    }
