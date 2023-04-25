@@ -19,6 +19,7 @@ public class MenuSort {
         System.out.println("╔═════════════════════════════════════════════════════════╗");
         System.out.println("║        SẮP XẾP SINH VIÊN THEO ĐIỂM TRUNG BÌNH           ║");
         System.out.println("║   1. Hiển thị sắp xếp điểm trung bình                   ║");
+        System.out.println("║   1. Hiển thị sắp xếp điểm trung bình                   ║");
         System.out.println("║   2. Quay lại                                           ║");
         System.out.println("╚═════════════════════════════════════════════════════════╝");
         System.out.print("➨ \t");

@@ -8,9 +8,6 @@ import java.util.Arrays;
 
 public class Test {
     public static void main(String[] args) {
-//        Circle circle = new Circle(2,"blue",true);
-//        Rectangle rectangle = new Rectangle(3,4,"red",true);
-//        Square square = new Square(4,"yellow",false);
 
         Shape[] shapes = new Shape[3];
         shapes[0] = new Circle(2,"blue",true);

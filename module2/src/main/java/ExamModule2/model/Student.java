@@ -31,6 +31,9 @@ public class Student implements Student1 {
         this.diemTB = Double.parseDouble(strings[5]);
     }
 
+    public Student(String datum, String datum1, int parseInt) {
+    }
+
     public long getId() {
         return id;
     }
@@ -81,14 +84,8 @@ public class Student implements Student1 {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", tuoi=" + tuoi +
-                ", gioitinh='" + gioitinh + '\'' +
-                ", diachi='" + diachi + '\'' +
-                ", diemTB=" + diemTB +
-                '}';
+        //1;Bằng;27;Nam;Huế;10
+        return String.format("%s;%s;%s;%s;%s;%s", this.id, this.name, this.tuoi, this.gioitinh, this.diachi, this.diemTB);
     }
 
     @Override

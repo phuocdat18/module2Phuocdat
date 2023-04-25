@@ -6,12 +6,17 @@ import ExamModule2.model.Student;
 import ExamModule2.service.StudentService;
 
 
-
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public class StudentView {
+
+    private List<Student> studentList = new ArrayList<>();
 
     private static StudentService studentService = new StudentService();
     private static Scanner scanner = new Scanner(System.in);
@@ -71,7 +76,8 @@ public class StudentView {
         Student student = new Student(id, ten, tuoi, gioiTinh, diaChi, diemTrungBinh);
         studentService.addItem(student);
         System.out.println("Đã thêm sinh viên thành công!");
-        show(studentService.getItem());
+        Menu.mainMenu();
+//        show(studentService.getItem());
 
 
         boolean flag = true;
@@ -99,7 +105,7 @@ public class StudentView {
 
 
     public void update() {
-        show(studentService.getItem());
+//        show(studentService.getItem());
         System.out.print("Nhập thông tin sinh viên cần sửa \t ");
         try {
             int id = Integer.parseInt(scanner.nextLine());
@@ -311,7 +317,7 @@ public class StudentView {
         List<Student> studentList = studentService.getItem();
         try {
             System.out.println("╔══════════════════════════════════════════════DANH SÁCH SINH VIÊN═════════════════════════════════════════════════════════════╗");
-            System.out.printf("%-20s %-30s %-10s %-10s %-20s %-15s", "Mã sinh viên", "Họ tên", "Tuổi", "Giới tính", "Địa chỉ", "Điểm trung bình");
+            System.out.printf("%-20s %-30s %-10s %-10s %-20s %-15s\n", "Mã sinh viên", "Họ tên", "Tuổi", "Giới tính", "Địa chỉ", "Điểm trung bình");
             for (Student student : studentList) {
                 System.out.printf("%-20s %-30s %-10s %-10s %-20s %-15s\n",student.getId(), student.getName(), student.getTuoi(), student.getGioitinh(), student.getDiachi(), student.getDiemTB());
             }
@@ -335,9 +341,30 @@ public class StudentView {
             } while (!flag);
         } catch (Exception ex) {
             ex.printStackTrace();
-
-
         }
-
     }
+
+
+    public void readStudentListFromCsv() throws IOException {
+        System.out.println("Bạn có muốn đọc danh sách sinh viên từ tập tin? Điều này sẽ xóa danh sách hiện có. (y/n)");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine().trim().toLowerCase();
+        String sourceFile = "abc.txt";
+        if (input.equals("y")) {
+            studentList.clear();
+            try (BufferedReader br = new BufferedReader(new FileReader(sourceFile))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] data = line.split(";");
+                    if (data.length != 3) {
+                        System.err.println("Định dạng dữ liệu không hợp lệ trong tệp CSV.");
+                        continue;
+                    }
+                    Student student = new Student(data[0], data[1], Integer.parseInt(data[2]));
+                    studentList.add(student);
+                }
+            }
+        }
+    }
+
 }

@@ -17,7 +17,7 @@ public class Point2D {
         this.x = x;
         this.y = y;
     }
-    // Getter, setter để làm gì: getter để truy cập giá trị của 1 thộc tính
+    // Getter, setter để làm gì: getter để truy cập giá trị của 1 thuộc tính
     // setter sử dụng để cập nhật giá trị của 1 thuộc tính.
     public float getX() {
         return this.x;

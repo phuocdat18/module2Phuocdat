@@ -1,5 +1,6 @@
 package ExamModule2.views;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -29,12 +30,15 @@ public class Menu {
                         studentView.remove();
                         break;
                     case 5:
-                        SearchMenu.searchMenu();
+                        MenuSort.sortMenu();
                         break;
                     case 6:
-                        MenuSort.option();
+                        MenuSort.sortMenu();
                         break;
                     case 7:
+                        studentView.readStudentListFromCsv();
+                        break;
+                    case 8:
                         exit();
                         isFinished = true;
                         break;
@@ -44,6 +48,8 @@ public class Menu {
             } catch (InputMismatchException e) {
                 System.out.println("Nhập sai! Mời nhập lại");
                 scanner.nextLine();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -59,7 +65,7 @@ public class Menu {
         System.out.println("║   5. Sắp xếp                                            ║");
         System.out.println("║   6. Đọc từ file                                        ║");
         System.out.println("║   7. Ghi từ file                                        ║");
-        System.out.println("║   9. Thoát                                              ║");
+        System.out.println("║   8. Thoát                                              ║");
         System.out.println("║                                                         ║");
         System.out.println("╚═════════════════════════════════════════════════════════╝");
     }
